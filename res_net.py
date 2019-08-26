@@ -215,7 +215,9 @@ X_test = X_test_orig/255.
 # Convert training and test labels to one hot matrices
 Y_train = convert_to_one_hot(Y_train_orig, 6).T
 Y_test = convert_to_one_hot(Y_test_orig, 6).T
-model.fit(X_train, Y_train, epochs=2, batch_size=32)
+# here we used 20 epoch, so you should run it in a GPU,
+# but if you want just to see the code running and test it use epoch= 02
+model.fit(X_train, Y_train, epochs=20, batch_size=32)
 preds = model.evaluate(X_test, Y_test)
 print("Loss = " + str(preds[0]))
 print("Test Accuracy = " + str(preds[1]))
